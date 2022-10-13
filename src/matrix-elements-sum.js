@@ -23,7 +23,8 @@ function getMatrixElementsSum( matrix ) {
     for (let j = 0; j < row.length; j++) {
       const element = row[j];
       if( (matrix[i - 1] === undefined) || (matrix[i - 1][j] !== 0))
-        sum += element;
+        sum += element; // need to do validation of index
+        // because js can take [-1] with no problem
     }
   }
   return sum;
