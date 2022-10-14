@@ -12,9 +12,8 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function getSeason(date) { 
-    let myDate = new Date;
     if (date === undefined) return 'Unable to determine the time of year!';
-    if (Object.getPrototypeOf(date) !== Object.getPrototypeOf(myDate)) throw new Error('Invalid date!');
+   
     if (! isDate(date) ) throw new Error('Invalid date!');
 
 
@@ -26,11 +25,21 @@ function getSeason(date) {
 
     function isDate (date) {
         let myDate = new Date;
+        const myDateProtoArr = Object.getOwnPropertyNames(Object.getPrototypeOf(myDate));
+        const fakeDateProtoArr = Object.getOwnPropertyNames(Object.getPrototypeOf(date));
         if ( ! (date instanceof Date)) return false;
-        if (date.__proto__ !== Date.prototype) return false;
-        if (date.constructor !== Date) return false;
         if ( ! (Object.prototype.toString.call(date) === "[object Date]") ) return false;
-        if (Object.prototype.valueOf(myDate) !== Object.prototype.valueOf(date) ) return false;
+
+        for (let i = 0; i < myDateProtoArr.length; i++) {
+            if (myDateProtoArr[i] !== fakeDateProtoArr[i]) return false;
+        }
+        try {
+            date.getUTCDate();
+        }
+        catch (err) {
+            return false;
+        }
+
         return true;
     }
 }
