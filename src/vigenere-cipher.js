@@ -101,9 +101,6 @@ class VigenereCipheringMachine {
         
     }
 }
-const directMachine = new VigenereCipheringMachine();
-console.debug(directMachine.decrypt('UWJJW XAGWLNFM VNNNDXHVWWL :)', 'js'));
-// 'AEIHQX SX DLLU!';
 
 
 module.exports = {
