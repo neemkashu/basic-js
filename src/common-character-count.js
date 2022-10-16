@@ -35,7 +35,7 @@ function getCommonCharacterCount( s1, s2 ) {
         return map;
     }
 }
-console.log(getCommonCharacterCount('zzzz', 'zzzzzzz'));
+
 module.exports = {
   getCommonCharacterCount
 };

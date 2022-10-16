@@ -33,7 +33,7 @@ function dateSample(sampleActivityStr) { // A
         return true;
     }
 }
-console.log(dateSample(8));
+
 module.exports = {
   dateSample
 };

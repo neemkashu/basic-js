@@ -33,7 +33,7 @@ function encodeLine( str ) {
     strOut = strOut.join('');
     return strOut;
 }
-console.log(encodeLine('abbcca'));
+
 module.exports = {
   encodeLine
 };

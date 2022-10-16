@@ -21,7 +21,7 @@ function calculateHanoi( disksNumber, turnsSpeed ) {
     }
     return solutionInfo;
 }
-console.log(calculateHanoi(9, 4308));
+
 module.exports = {
   calculateHanoi
 };
