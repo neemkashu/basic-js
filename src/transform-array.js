@@ -17,6 +17,22 @@ function transform( arrIn ) {
     if (! Array.isArray(arrIn)) throw new Error("'arr' parameter must be an instance of the Array!");
     const controls = ['--double-next','--double-prev','--discard-next','--discard-prev'];
     let arr = arrIn.slice();
+
+    // let debugCount = 2;
+    // for (let i = 0; i < arr.length; i++) {
+    //    if (typeof arr[i] === 'object' && arr[i].foo === 'bar' && debugCount < 8) {
+    //             // const fs = require('fs');
+    //             // fs.writeFile(`D:/JavaScriptStudy/sandboxJS/${debugCount}.txt`, JSON.stringify(arrIn), function(err) {
+    //             //     if(err) {
+    //             //         return console.log(err);
+    //             //     }
+                
+    //             // }); 
+    //             console.debug(arrIn);
+    //         debugCount++;
+    //         break;
+    //     }
+    // }
     
     let i = 0;
     while (i < arr.length) {
@@ -26,7 +42,7 @@ function transform( arrIn ) {
 
         switch (current) {
             case '--double-next': {
-                if (!isNaN(next) && (next !== undefined) && ( !controls.includes(next))) {
+                if ((!(Number.isNaN(next))) && (next !== undefined) && ( !controls.includes(next))) {
                     arr.splice(i + 1, 0, next);
                     i++;
                 }
@@ -34,7 +50,7 @@ function transform( arrIn ) {
             }               
             break;
             case '--double-prev': {
-                if (!isNaN(prev) && (prev !== undefined) && ( !controls.includes(prev))) {
+                if ((!Number.isNaN(prev)) && (prev !== undefined) && ( !controls.includes(prev))) {
                     arr.splice(i - 1, 0, prev);
                     i += 2;
                 }
@@ -42,7 +58,7 @@ function transform( arrIn ) {
             }               
             break;
             case '--discard-next': {
-                if (!isNaN(next) && (next !== undefined) && ( !controls.includes(next))) {
+                if ((!Number.isNaN(next)) && (next !== undefined) && ( !controls.includes(next))) {
                     arr.splice(i + 1, 1);
                     i++;
                 }
@@ -50,7 +66,7 @@ function transform( arrIn ) {
             }               
             break;
             case '--discard-prev': {
-                if (!isNaN(prev) && (prev !== undefined) && ( !controls.includes(prev))) {
+                if ((!Number.isNaN(prev)) && (prev !== undefined) && ( !controls.includes(prev))) {
                     arr.splice(i - 1, 1);
                 }
                 i++;
