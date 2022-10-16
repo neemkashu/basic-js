@@ -38,8 +38,7 @@ function repeater( str, options) {
         return options;        
     }
 }
-let str = repeater(9.234, { repeatTimes: 4, separator: '||', addition: { a: 5 }, additionRepeatTimes: 3, additionSeparator: '&&' });
-console.log(str);
+
 module.exports = {
   repeater
 };
