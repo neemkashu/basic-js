@@ -25,7 +25,7 @@ const { NotImplementedError } = require('../extensions/index.js');
 function getDNSStats(domains) {
     let domMap = new Map;
     for (let site of domains) {
-        let oneSite = site.split('.').reverse().map((subdomain, i, sites) => {
+        site.split('.').reverse().map((subdomain, i, sites) => {
             if (i > 0) addToMap(domMap, `.${sites.slice(0,i).join('.')}.${subdomain}`);
             else addToMap(domMap, `.${subdomain}`);
         });
